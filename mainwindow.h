@@ -41,7 +41,10 @@ private:
     Ui::MainWindow *ui;
     QImage inputImage;
     QGraphicsScene* scene;
-    GaussianBlurFilter gaussianBlurFilter;
-    CannyFilter cannyFilter;
+    GaussianBlurFilter* pGaussianBlurFilter;
+    CannyFilter* pCannyFilter;
+    QVariant qVariantCanny;
+    QVariant qVariantGaussian;
+
 };
 #endif // MAINWINDOW_H

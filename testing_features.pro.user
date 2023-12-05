@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 11.0.3, 2023-12-02T19:45:18. -->
+<!-- Written by QtCreator 11.0.3, 2023-12-05T11:43:02. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -83,7 +83,7 @@
     <value type="bool" key="ClangTools.UseGlobalSettings">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ClangdSettings">
-    <value type="bool" key="blockIndexing">true</value>
+    <value type="bool" key="blockIndexing">false</value>
     <value type="bool" key="useGlobalSettings">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="CppEditor.QuickFix">
@@ -245,8 +245,9 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/QT Projetcs 2/testing_features/testing_features.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/QT Projetcs 2/testing_features/testing_features.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">testing_features2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/QTProjects/testing_features/testing_features.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/QTProjects/testing_features/testing_features.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>

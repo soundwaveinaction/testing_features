@@ -62,18 +62,7 @@
      </layout>
     </item>
     <item>
-     <widget class="QComboBox" name="comboBox">
-      <item>
-       <property name="text">
-        <string>GaussianBlur</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Canny</string>
-       </property>
-      </item>
-     </widget>
+     <widget class="QComboBox" name="filterComboBox"/>
     </item>
     <item>
      <widget class="QGraphicsView" name="graphicsView"/>

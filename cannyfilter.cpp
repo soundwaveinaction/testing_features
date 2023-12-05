@@ -10,16 +10,25 @@ CannyFilter::~CannyFilter()
 
 }
 
-int CannyFilter::param1(int param)
+void CannyFilter::SetParam1(int param)
 {
     treshold2=param;
-    return treshold2;
+
 }
 
-int CannyFilter::param2(int param)
+void CannyFilter::SetParam2(int param)
 {
     treshold1=param;
+}
+
+int CannyFilter::GetParam1()
+{
     return treshold1;
+}
+
+int CannyFilter::GetParam2()
+{
+    return treshold2;
 }
 
 QImage CannyFilter::cvMatToQImage(cv::Mat *cvImage)

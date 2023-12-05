@@ -17,13 +17,21 @@
 #include <QDebug>
 #include <QMessageBox>
 
-
+//filtersMap.insert("gaussian blur",qVariantCanny);
+//filtersMap.insert("canny",qVariantGaussian);
+//QVariant qVariant3 =filtersMap.value("canny");
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     scene=new QGraphicsScene(this);
+    pCannyFilter=new CannyFilter();
+    pGaussianBlurFilter=new GaussianBlurFilter();
+    qVariantGaussian.setValue(reinterpret_cast<quint64>(pGaussianBlurFilter));
+    qVariantCanny.setValue(reinterpret_cast<quint64>(pCannyFilter));
+    ui->filterComboBox->addItem("Gaussian Blur",qVariantGaussian);
+    ui->filterComboBox->addItem("Canny",qVariantCanny);
 }
 
 
@@ -43,47 +51,26 @@ void MainWindow::on_action_triggered()
 
 void MainWindow::on_pushButton_clicked()
 {
-    if(ui->comboBox->currentText()=="GaussianBlur")
-    {
-        if(!(gaussianBlurFilter.ksizeHeight%2==0 && gaussianBlurFilter.ksizeWidth%2==0))
-        {
-            scene->addPixmap(QPixmap::fromImage(gaussianBlurFilter.progress(inputImage)));
-        }
-        else
-        {
-            QMessageBox::information(this,"Ошибка","Введите нечетное число");
-        }
-    }
-    else if(ui->comboBox->currentText()=="Canny")
-    {
-        scene->addPixmap(QPixmap::fromImage(cannyFilter.progress(inputImage)));
-    }
+    QVariant variant = this->ui->filterComboBox->currentData();
+    IFilter* filter=reinterpret_cast<IFilter*>(variant.value<quint64>());
+    scene->addPixmap(QPixmap::fromImage(filter->progress(inputImage)));
     ui->graphicsView->setScene(scene);
 }
 
 
 void MainWindow::on_param1Spinox_valueChanged(int arg1)
 {
-    if(ui->comboBox->currentText()=="GaussianBlur")
-    {
-         gaussianBlurFilter.param1((int)arg1);
-    }
-    else if(ui->comboBox->currentText()=="Canny")
-    {
-         cannyFilter.param1((int)arg1);
-    }
+    QVariant variant = this->ui->filterComboBox->currentData();
+    IFilter* filter=reinterpret_cast<IFilter*>(variant.value<quint64>());
+    filter->SetParam1((int)arg1);
 }
 
 
 void MainWindow::on_param2Spinox_valueChanged(int arg1)
 {
-    if(ui->comboBox->currentText()=="GaussianBlur")
-    {
-         gaussianBlurFilter.param2((int)arg1);
-    }
-    else if(ui->comboBox->currentText()=="Canny")
-    {
-         cannyFilter.param2((int)arg1);
-    }
+    QVariant variant = this->ui->filterComboBox->currentData();
+    IFilter* filter=reinterpret_cast<IFilter*>(variant.value<quint64>());
+    filter->SetParam2((int)arg1);
+
 }
 

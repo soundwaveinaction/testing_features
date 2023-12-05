@@ -10,15 +10,24 @@ GaussianBlurFilter::~GaussianBlurFilter()
 
 }
 
-int GaussianBlurFilter::param1(int param)
+void GaussianBlurFilter::SetParam1(int param)
 {
     ksizeHeight=param;
+}
+
+void GaussianBlurFilter::SetParam2(int param)
+{
+    ksizeWidth=param;
+
+}
+
+int GaussianBlurFilter::GetParam1()
+{
     return ksizeHeight;
 }
 
-int GaussianBlurFilter::param2(int param)
+int GaussianBlurFilter::GetParam2()
 {
-    ksizeWidth=param;
     return ksizeWidth;
 }
 

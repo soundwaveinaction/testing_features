@@ -22,19 +22,24 @@ class CannyFilter : public IFilter
 public:
     CannyFilter();
     ~CannyFilter();
-    int param1(int param) override;;
 
-    int param2(int param) override;;
+    void SetParam1(int param) override;
+
+    void SetParam2(int param) override;
+
+    int GetParam1() override;
+
+    int GetParam2() override;
 
     QImage cvMatToQImage(cv::Mat* cvImage);
 
     cv::Mat QImageToCvMat(QImage& img);
 
     QImage progress(QImage& image) override;;
-    int treshold1,treshold2;
+
 
 private:
-    //int treshold1,treshold2;
+    int treshold1,treshold2;
 };
-
+Q_DECLARE_METATYPE(CannyFilter*)
 #endif // CANNYFILTER_H
